@@ -494,9 +494,10 @@ namespace AK_DLL
             }
 
             // rjw body parts
-            rjw.SexPartAdder.add_anus(operator_Pawn);
-            rjw.SexPartAdder.add_genitals(operator_Pawn);
-            rjw.SexPartAdder.add_breasts(operator_Pawn);
+            Gender gender = this.isMale ? Gender.Male : Gender.Female;
+            rjw.SexPartAdder.add_anus(operator_Pawn, gender: gender);
+            rjw.SexPartAdder.add_genitals(operator_Pawn, gender: gender);
+            rjw.SexPartAdder.add_breasts(operator_Pawn, gender: gender);
         }
 
         protected virtual void FixAlienHairColor()
