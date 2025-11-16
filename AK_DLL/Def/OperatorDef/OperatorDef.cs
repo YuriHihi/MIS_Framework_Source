@@ -492,6 +492,11 @@ namespace AK_DLL
                     AbilityEffect_AddHediff.AddHediff(operator_Pawn, i.hediff, i.part, customLabel: i.partCustomLabel, severity: i.serverity);
                 }
             }
+
+            // rjw body parts
+            rjw.SexPartAdder.add_anus(operator_Pawn);
+            rjw.SexPartAdder.add_genitals(operator_Pawn);
+            rjw.SexPartAdder.add_breasts(operator_Pawn);
         }
 
         protected virtual void FixAlienHairColor()
@@ -542,6 +547,10 @@ namespace AK_DLL
             {
                 operator_Pawn.story.traits.GainTrait(new Trait(traitAndDegree.def, traitAndDegree.degree));
             }
+            // rjw sex experience trait
+            {
+                RJWSexperience.Virginity.TraitHandler.AddVirginTrait(operator_Pawn);
+            }
             operator_Pawn.story.Childhood = childHood;
             operator_Pawn.story.Adulthood = this.age < BackstoryAdultAgeThreshold ? null : adultHood;
             //背景设置
@@ -569,6 +578,16 @@ namespace AK_DLL
                 }
             }
             //从干员文档更新属性
+
+            // rjw sex skill
+            {
+                SkillRecord skill = new(operator_Pawn, RJWSexperience.RsDefOf.Skill.Sex)
+                {
+                    passion = Passion.Minor,
+                    Level = 0
+                };
+                operator_Pawn.skills.skills.Add(skill);
+            }
         }
 
         protected void Recruit_Inventory()

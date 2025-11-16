@@ -51,6 +51,12 @@
       <HintPath>..\Rely\FS_UGUIFramework.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="RJW">
+      <HintPath>E:\Steam\steamapps\common\RimWorld\Mods\rjw-master\1.6\Assemblies\RJW.dll</HintPath>
+    </Reference>
+    <Reference Include="RJWSexperience">
+      <HintPath>E:\Steam\steamapps\common\RimWorld\Mods\rjw-sexperience-master\1.6\Assemblies\RJWSexperience.dll</HintPath>
+    </Reference>
     <Reference Include="SpriteEvo">
       <HintPath>..\Rely\SpriteEvo.dll</HintPath>
       <Private>False</Private>
@@ -101,8 +107,8 @@
     </Reference>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+  <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="DEL &quot;$(SolutionDir)\输出\AK_DLL.dll&quot;&#xD;&#xA;COPY &quot;$(TargetPath)&quot; &quot;$(SolutionDir)\输出\AK_DLL.dll&quot;" />
-  </Target>
+  </Target>-->
 
 </Project>
